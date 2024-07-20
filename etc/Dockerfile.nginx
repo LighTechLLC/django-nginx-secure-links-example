@@ -1,0 +1,5 @@
+# not for production
+FROM ubuntu:latest
+
+RUN apt update -y && apt install -y nginx nginx-extras
+CMD ["nginx", "-g", "daemon off;"]

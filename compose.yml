@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  nginx:
+    build:
+      dockerfile: etc/Dockerfile.nginx
+      context: .
+    volumes:
+      - ./src/media/:/var/www/html/media/
+      - ./etc/default.site.conf:/etc/nginx/sites-enabled/default
+    ports:
+      - "8090:80"
+
+  backend:
+    image: python:3.12-slim-bookworm
+    working_dir: /app
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./src/:/app/
+      - ./requirements.txt:/tmp/requirements.txt
+    command: bash -c "pip install -r /tmp/requirements.txt && python manage.py runserver 0:8000"
