@@ -134,7 +134,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # SECURE LINKS SETTINGS
 
-DEFAULT_FILE_STORAGE = 'nginx_secure_links.storages.FileStorage'
+STORAGES = {
+    "default": {
+        "BACKEND": "nginx_secure_links.storages.FileStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
+    },
+}
 
 SECURE_LINK_EXPIRATION_SECONDS = 100
 SECURE_LINK_SECRET_KEY = '8SypVsPwf3PypUfdVmos9NdmQNCsMG'
