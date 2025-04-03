@@ -1,7 +1,11 @@
+### Into
+
+This is a simple Django project which shows how to use django-nginx-secure-links: https://github.com/lightechllc/django-nginx-secure-links/
+
 ### Quick Setup
 
 ```bash
-docker compose up
+docker compose up -d
 ```
 
 ### Important notes
@@ -16,3 +20,10 @@ docker compose up
 3. We set up `MEDIA_URL = 'http://127.0.0.1:8090/media/'` using nginx absolute url, it allows us to be directly connected to nginx container by copy and pasting URL to browser.
 4. For emulating Nginx local setup we described steps using ubuntu image there: [Dockerfile.nginx](etc/Dockerfile.nginx). The Dockerfile should not be used on production, it's just a simple example how to set up nginx-extras.
 5. Nginx site config example file described there: [default.site.conf](etc/default.site.conf).
+
+
+### Clean up resources
+
+```bash
+docker compose down
+```
