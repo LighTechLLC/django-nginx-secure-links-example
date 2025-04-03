@@ -21,6 +21,12 @@ docker compose up -d
 4. For emulating Nginx local setup we described steps using ubuntu image there: [Dockerfile.nginx](etc/Dockerfile.nginx). The Dockerfile should not be used on production, it's just a simple example how to set up nginx-extras.
 5. Nginx site config example file described there: [default.site.conf](etc/default.site.conf).
 
+### Optional
+
+You can also generate Nginx locations config blocks for media files by running command:
+```bash
+docker  compose exec backend python manage.py secure_links_nginx_location
+```
 
 ### Clean up resources
 
